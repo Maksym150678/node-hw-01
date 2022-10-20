@@ -16,8 +16,8 @@ async function listContacts() {
 async function getContactById(contactId) {
   const contactIdString = contactId.toString();
   try {
-    const сontacts = await fs.readFile(contactsPath, "utf8");
-    const arrayContacts = JSON.parse(сontacts);
+    const contacts = await fs.readFile(contactsPath, "utf8");
+    const arrayContacts = JSON.parse(contacts);
     const findContactbyId = arrayContacts.find(
       (item) => item.id === contactIdString
     );
@@ -30,8 +30,8 @@ async function getContactById(contactId) {
 async function removeContact(contactId) {
   const contactIdString = contactId.toString();
   try {
-    const сontacts = await fs.readFile(contactsPath, "utf8");
-    const arrayContacts = JSON.parse(сontacts);
+    const contacts = await fs.readFile(contactsPath, "utf8");
+    const arrayContacts = JSON.parse(contacts);
     const newArrayContacts = arrayContacts.filter(
       (item) => item.id !== contactIdString
     );
@@ -46,8 +46,8 @@ async function removeContact(contactId) {
 
 async function addContact(name, email, phone) {
   try {
-    const сontacts = await fs.readFile(contactsPath, "utf8");
-    const arrayContacts = JSON.parse(сontacts);
+    const contacts = await fs.readFile(contactsPath, "utf8");
+    const arrayContacts = JSON.parse(contacts);
     let lastElement = arrayContacts.slice(-1);
 
     const id = parseInt(lastElement[0].id) + 1;
